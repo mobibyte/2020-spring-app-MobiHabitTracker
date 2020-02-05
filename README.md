@@ -1,5 +1,7 @@
 # mobi_habit_tracker
 
+> We're still developing this repo! Remember to 'git pull' before the workshop starts for new updates.
+
 A new Flutter project.
 
 ## Getting Started
