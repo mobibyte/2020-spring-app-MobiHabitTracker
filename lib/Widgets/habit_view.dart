@@ -29,6 +29,15 @@ class HabitView extends StatelessWidget {
             onCompleted(habitIndex);
           }
         },
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => History(
+                      habitName: habit.name,
+                    )),
+          );
+        },
         child: Container(
           margin: EdgeInsets.all(16),
           decoration: BoxDecoration(
