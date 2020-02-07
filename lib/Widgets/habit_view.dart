@@ -16,11 +16,19 @@ class HabitView extends StatelessWidget {
       onDismissed: (direction) {
         onDismissed(habitIndex);
       },
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
+      child: Container(
+        margin: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: const EdgeInsets.all(16.0),
         child: Row(
           children: <Widget>[
-            Icon(habit.icon != null ? habit.icon : Icons.access_alarm),
+            Icon(
+              habit.icon != null ? habit.icon : Icons.access_alarm,
+              color: Colors.teal,
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
