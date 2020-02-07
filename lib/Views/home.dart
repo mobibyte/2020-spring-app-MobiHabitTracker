@@ -51,9 +51,9 @@ class _HomeState extends State<Home> {
     List<String> habitList = prefs.getStringList('habits');
     if (habitList != null) {
       setState(() {
-        habits = habitList
-            .map((habitString) => Habit.fromJson(jsonDecode(habitString)))
-            .toList();
+        habits = habitList.map((habitString) {
+          return Habit.fromJson(jsonDecode(habitString));
+        }).toList();
       });
     }
   }

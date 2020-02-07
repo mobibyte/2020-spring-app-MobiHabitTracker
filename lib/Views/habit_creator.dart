@@ -10,7 +10,19 @@ class HabitCreator extends StatefulWidget {
 }
 
 class _HabitCreatorState extends State<HabitCreator> {
-  Habit _habit = Habit('');
+  Habit _habit;
+
+  @override
+  void initState() {
+    _habit = Habit(
+      '',
+      icon: Icon(
+        Icons.star,
+        color: Colors.orange,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +30,7 @@ class _HabitCreatorState extends State<HabitCreator> {
         title: Text("Habit Creator"),
         actions: <Widget>[
           FlatButton(
-            textColor: Colors.white,
+            textColor: Colors.blue,
             shape: CircleBorder(
               side: BorderSide(
                 color: Colors.transparent,
@@ -27,7 +39,7 @@ class _HabitCreatorState extends State<HabitCreator> {
             child: Text(
               "Done",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
               ),
             ),
             onPressed: () {
@@ -51,6 +63,102 @@ class _HabitCreatorState extends State<HabitCreator> {
               decoration: InputDecoration(
                 hintText: "Name of habit",
               ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 24.0),
+            child: Text("Choose an Icon"),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      color: Colors.orange,
+                      size: 48,
+                    ),
+                    Radio(
+                      groupValue: _habit.icon.icon.codePoint,
+                      value: Icons.star.codePoint,
+                      onChanged: (value) {
+                        setState(() {
+                          _habit.icon = Icon(
+                            IconData(value),
+                            color: Colors.orange,
+                          );
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Icon(
+                      Icons.access_time,
+                      color: Colors.grey,
+                      size: 48,
+                    ),
+                    Radio(
+                      groupValue: _habit.icon.icon.codePoint,
+                      value: Icons.access_time.codePoint,
+                      onChanged: (value) {
+                        setState(() {
+                          _habit.icon = Icon(
+                            IconData(value),
+                            color: Colors.grey,
+                          );
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Icon(
+                      Icons.whatshot,
+                      color: Colors.red,
+                      size: 48,
+                    ),
+                    Radio(
+                      groupValue: _habit.icon.icon.codePoint,
+                      value: Icons.whatshot.codePoint,
+                      onChanged: (value) {
+                        setState(() {
+                          _habit.icon = Icon(
+                            IconData(value),
+                            color: Colors.red,
+                          );
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Icon(
+                      Icons.attach_money,
+                      color: Colors.green,
+                      size: 48,
+                    ),
+                    Radio(
+                      groupValue: _habit.icon.icon.codePoint,
+                      value: Icons.attach_money.codePoint,
+                      onChanged: (value) {
+                        setState(() {
+                          _habit.icon = Icon(
+                            IconData(value),
+                            color: Colors.green,
+                          );
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ],
             ),
           )
         ],
