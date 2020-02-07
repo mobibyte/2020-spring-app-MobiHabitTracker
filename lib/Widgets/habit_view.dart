@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobi_habit_tracker/Models/index.dart';
+import 'package:mobi_habit_tracker/Views/history.dart';
 
 class HabitView extends StatelessWidget {
   final Habit habit;
