@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart' show CalendarCarousel;
+import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
+    show CalendarCarousel;
 
-class History extends StatefulWidget{
-
+class History extends StatefulWidget {
   @override
   _HistoryState createState() => _HistoryState();
 }
@@ -13,13 +13,9 @@ class History extends StatefulWidget{
 class _HistoryState extends State<History> {
   DateTime _currentDate;
 
-  EventList<Event> _markedDateMap = new EventList<Event>(
-    events: {}
-  );
-  
-  
+  EventList<Event> _markedDateMap = new EventList<Event>(events: {});
 
-  loadHabits() async{
+  loadHabits() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String> habits = prefs.getStringList("habitList");
     print(habits);
@@ -27,7 +23,8 @@ class _HistoryState extends State<History> {
 
   @override
   Widget build(BuildContext context) {
-    _markedDateMap.add(DateTime(2020,2,2), new Event(date: DateTime(2020, 2, 2)));
+    _markedDateMap.add(
+        DateTime(2020, 2, 2), new Event(date: DateTime(2020, 2, 2)));
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16.0),
@@ -54,5 +51,3 @@ class _HistoryState extends State<History> {
     );
   }
 }
-
-
