@@ -32,6 +32,11 @@ class _HomeState extends State<Home> {
     setHabits(habits);
   }
 
+  removeHabit(int index) async {
+    habits.removeAt(index);
+    setHabits(habits);
+  }
+
   setHabits(List<Habit> habits) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -76,7 +81,12 @@ class _HomeState extends State<Home> {
           Icons.add,
         ),
       ),
-      body: HabitList(habits),
+      body: HabitList(
+        habits,
+        onDismissed: (index) {
+          removeHabit(index);
+        },
+      ),
     );
   }
 }

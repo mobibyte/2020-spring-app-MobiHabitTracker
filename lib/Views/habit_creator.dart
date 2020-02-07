@@ -10,7 +10,7 @@ class HabitCreator extends StatefulWidget {
 }
 
 class _HabitCreatorState extends State<HabitCreator> {
-  Habit _habit = Habit("");
+  Habit _habit = Habit('');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,9 @@ class _HabitCreatorState extends State<HabitCreator> {
               ),
             ),
             onPressed: () {
-              widget.onAddHabit(_habit);
+              if (_habit.name != '') {
+                widget.onAddHabit(_habit);
+              }
               Navigator.pop(context);
             },
           )
