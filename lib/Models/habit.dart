@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 
 class Habit {
   String name;
+  bool completed;
   Icon icon;
 
-  Habit(this.name, {this.icon});
+  Habit(this.name, {this.icon, this.completed});
 
   Habit.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    icon = iconFromString(json['icon']);
+    name = json['name'] ?? "";
+    completed = json['completed'] ?? false;
+    icon = iconFromString(json['icon']) ?? null;
   }
 
   Map<String, dynamic> toJson() => {
         'name': name,
+        'completed': completed,
         'icon': iconToString(icon),
       };
 

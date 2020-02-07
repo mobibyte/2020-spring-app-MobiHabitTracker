@@ -4,8 +4,9 @@ import 'package:mobi_habit_tracker/Widgets/habit_view.dart';
 
 class HabitList extends StatelessWidget {
   final List<Habit> habits;
-  final Function(int) onDismissed;
-  const HabitList(this.habits, {this.onDismissed});
+  final Function(int) onDeleted;
+  final Function(int) onCompleted;
+  const HabitList(this.habits, {this.onDeleted, this.onCompleted});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +14,11 @@ class HabitList extends StatelessWidget {
         .map((habit) => HabitView(
               habit,
               habitIndex: habits.indexOf(habit),
-              onDismissed: (index) {
-                onDismissed(index);
+              onDeleted: (index) {
+                onDeleted(index);
+              },
+              onCompleted: (index) {
+                onCompleted(index);
               },
             ))
         .toList();

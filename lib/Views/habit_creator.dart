@@ -20,6 +20,7 @@ class _HabitCreatorState extends State<HabitCreator> {
         Icons.star,
         color: Colors.orange,
       ),
+      completed: false,
     );
   }
 

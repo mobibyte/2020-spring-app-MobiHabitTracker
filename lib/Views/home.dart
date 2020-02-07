@@ -28,12 +28,21 @@ class _HomeState extends State<Home> {
   }
 
   addHabit(Habit habit) async {
-    habits.add(habit);
+    habits.insert(0, habit);
     setHabits(habits);
   }
 
   removeHabit(int index) async {
     habits.removeAt(index);
+    setHabits(habits);
+  }
+
+  completeHabit(int index) async {
+    Habit completedHabit = habits[index];
+    completedHabit.completed = true;
+
+    habits.removeAt(index);
+    habits.add(completedHabit);
     setHabits(habits);
   }
 
@@ -83,8 +92,11 @@ class _HomeState extends State<Home> {
       ),
       body: HabitList(
         habits,
-        onDismissed: (index) {
+        onDeleted: (index) {
           removeHabit(index);
+        },
+        onCompleted: (index) {
+          completeHabit(index);
         },
       ),
     );
