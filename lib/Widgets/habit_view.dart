@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobi_habit_tracker/Models/index.dart';
+import 'package:mobi_habit_tracker/Views/history.dart';
 
 class HabitView extends StatelessWidget {
   final Habit habit;
@@ -16,29 +17,41 @@ class HabitView extends StatelessWidget {
       onDismissed: (direction) {
         onDismissed(habitIndex);
       },
-      child: Container(
-        margin: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(20),
-        ),
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: <Widget>[
-            Icon(
-              habit.icon != null ? habit.icon : Icons.access_alarm,
-              color: Colors.teal,
+      child: InkWell(
+        onTap: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => History(
+                habitName: habit.name,
+              )
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0),
-              child: Text(
-                habit.name,
-                style: TextStyle(fontSize: 24),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.grey[200],
+            borderRadius: BorderRadius.circular(20),
+          ),
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                habit.icon != null ? habit.icon : Icons.access_alarm,
+                color: Colors.teal,
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Text(
+                  habit.name,
+                  style: TextStyle(fontSize: 24),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
+      )
     );
   }
 }
