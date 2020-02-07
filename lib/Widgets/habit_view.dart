@@ -10,7 +10,7 @@ class HabitView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dismissible(
-      key: Key(habitIndex.toString()),
+      key: UniqueKey(),
       background: stackBehindDismiss(),
       direction: DismissDirection.endToStart,
       onDismissed: (direction) {
@@ -19,16 +19,13 @@ class HabitView extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Colors.grey[800],
           borderRadius: BorderRadius.circular(20),
         ),
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: <Widget>[
-            Icon(
-              habit.icon != null ? habit.icon : Icons.access_alarm,
-              color: Colors.teal,
-            ),
+            habit.icon,
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
