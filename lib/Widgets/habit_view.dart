@@ -33,9 +33,10 @@ class HabitView extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => History(
-                      habitName: habit.name,
-                    )),
+              builder: (context) => History(
+                habitName: habit.name,
+              ),
+            ),
           );
         },
         child: Container(

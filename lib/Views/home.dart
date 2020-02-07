@@ -27,17 +27,17 @@ class _HomeState extends State<Home> {
     retrieveHabits();
   }
 
-  addHabit(Habit habit) async {
+  addHabit(Habit habit) {
     habits.insert(0, habit);
     setHabits(habits);
   }
 
-  removeHabit(int index) async {
+  removeHabit(int index) {
     habits.removeAt(index);
     setHabits(habits);
   }
 
-  completeHabit(int index) async {
+  completeHabit(int index) {
     Habit completedHabit = habits[index];
     completedHabit.completed = true;
 
